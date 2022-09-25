@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 // API
@@ -31,7 +31,7 @@ const Signup = () => {
     const showSuccess = () => {
         return (
             <div className='alert alert-info text-center' style={{ display: success ? "" : "none" }}>
-                Account Created Successfully Please Signin
+                Account Created Successfully! Please <Link as={Link} to="/signin">Signin</Link>
             </div>
         )
     };

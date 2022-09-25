@@ -35,4 +35,28 @@ export const signIn = (user) => {
         .catch((err) => {
             return err;
         });
-}
+};
+
+
+// Save JWT to User Local Storage
+export const authenticate = (data, next) =>{
+    if(typeof window !== undefined){ //Checking if we can Access the Window Object. If not Undefined then the Window object is Available
+        localStorage.setItem("jwt", JSON.stringify(data));
+    }
+    next();
+};
+
+
+// Check if the user is Authenticated then Return True or False
+export const isAuthenticate = () => {
+    if(typeof window == undefined){
+        return false;
+    }
+
+    if(localStorage.getItem("jwt")){
+        return JSON.parse(localStorage.getItem("jwt")); // This will return the JWT Object with User Information
+    }
+    else {
+        return false;
+    }
+};

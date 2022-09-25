@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Container, Row, Col } from 'react-bootstrap';
 
 // API
-import {signIn} from '../Auth/index';
+import {signIn, authenticate} from '../Auth/index';
 
 // Import LAYOUT
 import Layout from '../Core/Layout/Layout';
@@ -74,12 +74,14 @@ function Signin() {
                 setError(data.error);
             }
             else {
-                setSuccess(1);
-                setError(0);
-                setValue("email", "", {shouldValidate: false});
-                setValue("password", "", {shouldValidate: false});
+                authenticate(data, ()=>{
+                    setSuccess(1);
+                    setError(0);
+                    setValue("email", "", {shouldValidate: false});
+                    setValue("password", "", {shouldValidate: false});
+                }); 
             }
-        })
+        });
     };
 
 
