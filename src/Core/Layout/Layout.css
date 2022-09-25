@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
+
+
+.layoutH2{
+    color: #792B11;
+    border: none;
+    font-weight: 700;
+    /* font-family: 'Viaoda Libre', cursive; */
+  }
+
+  .coverImage{
+    width: 100%;
+    height: 350;
+  }
+
+.descriptionP{
+    font-weight: 550;
+    color: #130f1c;;
+}  

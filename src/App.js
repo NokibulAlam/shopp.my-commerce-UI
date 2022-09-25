@@ -1,13 +1,12 @@
-import Signup from "./User/Signup";
-import Signin from "./User/Signin";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Import ROUTES
+import Router from './Routes';
 
 function App() {
   return (
-    // <Signup />
-    <Signin />
-  );
+    <Router />
+  )
 }
 
 export default App;

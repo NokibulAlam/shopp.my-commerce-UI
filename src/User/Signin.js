@@ -6,6 +6,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 // API
 import {signIn} from '../Auth/index';
 
+// Import LAYOUT
+import Layout from '../Core/Layout/Layout';
 
 function Signin() {
     const { register, handleSubmit, setValue, formState:{errors} } = useForm();
@@ -42,7 +44,7 @@ function Signin() {
                 <Row>
                     <Col md={8} className="offset-md-2">
                         <form onSubmit={handleSubmit(submitHandler)}>
-                            <h3>Sign Up</h3>
+                            <h3>Sign In</h3>
                             <div className="form-group mb-3">
                                 <label htmlFor='email' className='text-muted'><strong>Email</strong><span className='err'>{errors.email && "This Field is Required"}</span></label>
                                 <input type="email" className="form-control" id='email' placeholder="Enter your email" {...register("email", {required: true})} />
@@ -82,11 +84,11 @@ function Signin() {
 
 
     return (
-        <div>
+        <Layout title="Signin" description="This is the Signin page">
             {showError()}
             {showSuccess()}
             {signInForm()}
-        </div>
+        </Layout>
     )
 }
 

@@ -6,8 +6,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 // API
 import {signUp} from '../Auth/index';
 
+// Import LAYOUT
+import Layout from '../Core/Layout/Layout';
 
-function Signup() {
+const Signup = () => {
     const { register, handleSubmit, setValue, formState:{errors} } = useForm();
 
     // State
@@ -90,11 +92,11 @@ function Signup() {
         })
     };
     return (
-        <div>
+        <Layout title="Signup" description="This is the Signup page">
             {showError()}
             {showSuccess()}
             {signUpForm()}
-        </div>
+        </Layout>
     )
 }
 
