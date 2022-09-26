@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-// import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 // API
-import {signIn, authenticate} from '../Auth/index';
+import {signIn, authenticate, isAuthenticate} from '../Auth/index';
 
 // Import LAYOUT
 import Layout from '../Core/Layout/Layout';
@@ -15,7 +15,10 @@ function Signin() {
     // State
     const [success, setSuccess] = useState(0);
     const [error, setError] = useState(0);
+    const [redirect, setRedirect] = useState(false);
 
+    // Save User infomation from local storage Token
+    const {user} = isAuthenticate();
 
     // Show Error Message
     const showError = () => {
@@ -37,7 +40,7 @@ function Signin() {
     };
 
 
-    // Signup Form
+    // Signin Form
     const signInForm = () => {
         return (
             <Container>
@@ -76,6 +79,7 @@ function Signin() {
             else {
                 authenticate(data, ()=>{
                     setSuccess(1);
+                    setRedirect(true);
                     setError(0);
                     setValue("email", "", {shouldValidate: false});
                     setValue("password", "", {shouldValidate: false});
@@ -84,9 +88,22 @@ function Signin() {
         });
     };
 
+    // Redirect to Home
+    const redirectToHome = () => {
+        if(isAuthenticate()) {
+            return <Navigate to="/" />
+        }
+        if(redirect) {
+            if(user && user.role === 1) {
+
+            }
+        }
+    }
+
 
     return (
         <Layout title="Signin" description="This is the Signin page">
+            {redirectToHome()}
             {showError()}
             {showSuccess()}
             {signInForm()}

@@ -60,3 +60,22 @@ export const isAuthenticate = () => {
         return false;
     }
 };
+
+
+// For Logout 
+export const signOut = (next) => {
+    if(typeof window !== undefined){
+        localStorage.removeItem("jwt");
+        next();
+
+        return fetch(`http://localhost:4000/api/signout`, {
+            method: "GET",
+        })
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+}
