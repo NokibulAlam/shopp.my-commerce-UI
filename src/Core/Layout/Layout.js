@@ -19,7 +19,7 @@ const Layout = ({
             <Container fluid>
                 <Menu />
                 <Row>
-                    <Col md={12}>
+                    <Col md={12} sm={12}>
                         <Carousel fade>
                             <Carousel.Item>
                                 <img

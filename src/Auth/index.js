@@ -1,4 +1,5 @@
 // import { API } from "../config";
+// import { Navigate } from 'react-router-dom';
 
 // User SignUp
 export const signUp = (user) => {
@@ -73,6 +74,7 @@ export const signOut = (next) => {
         })
         .then((res) => {
             console.log(res)
+            // return <Navigate to="/" />
         })
         .catch((err) => {
             console.log(err);
