@@ -10,7 +10,7 @@ import { isAuthenticate, signOut } from '../../Auth/index';
 import Logo from '../../images/Logo-1.png';
 
 const Menu = () => {
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
     return (
         <div className="navbar_nav">
             <Navbar bg="light" variant="light" expand="lg">
