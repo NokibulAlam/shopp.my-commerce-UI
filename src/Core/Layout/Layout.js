@@ -3,6 +3,7 @@ import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
 // import CSS
 import './Layout.css';
+import '../../style.css';
 
 // NavBar Import
 import Menu from '../Menu/Menu';;
@@ -19,7 +20,7 @@ const Layout = ({
             <Container fluid>
                 <Menu />
                 <Row>
-                    <Col md={12} sm={12}>
+                    <Col lg={12} md={12} sm={12}>
                         <Carousel fade>
                             <Carousel.Item>
                                 <img
@@ -29,8 +30,8 @@ const Layout = ({
                                     height="700px"
                                 />
                                 <Carousel.Caption>
-                                    <h2 className='layoutH2 text-center'>{title}</h2>
-                                    <p className='descriptionP'>{description}.</p>
+                                    {/* <h3 className='layoutH2 text-center'>{title}</h3>
+                                    <p className='descriptionP'>{description}.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
@@ -42,8 +43,8 @@ const Layout = ({
                                 />
 
                                 <Carousel.Caption>
-                                    <h2>{title}</h2>
-                                    <p>{description}.</p>
+                                    {/* <h3 className='layoutH2 text-center'>{title}</h3>
+                                    <p>{description}.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
@@ -55,8 +56,8 @@ const Layout = ({
                                 />
 
                                 <Carousel.Caption>
-                                    <h2>{title}</h2>
-                                    <p>{description}.</p>
+                                    {/* <h3 className='layoutH2 text-center'>{title}</h3>
+                                    <p>{description}.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                         </Carousel>

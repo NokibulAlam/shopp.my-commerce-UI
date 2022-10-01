@@ -53,7 +53,7 @@ const Home = () => {
         <h2 className="mb-4">Best Selling Products</h2>
         <Row>
           {productBySell.map((product, i) => (
-            <Col md={4} className="mb-3">
+            <Col md={4} lg={3} sm={6} className="mb-3">
               <Card key={i} product={product} />
             </Col>
           ))}

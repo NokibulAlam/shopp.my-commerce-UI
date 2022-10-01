@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import './Card.css';
+import Badge from 'react-bootstrap/Badge';
 
 //Import Component
 import ShowImage from '../ShowImage/ShowImage';
+
 
 const Card = ({
     product,
@@ -23,6 +25,7 @@ const Card = ({
         <div className='card'>
             <div className='card-header cat-name'>{product.category && product.category.name}</div>
             <div className='card-body'>
+                {product.quantity > 0 ? (<Badge className="mb-2" bg="success">In Stock</Badge>) : (<Badge className="mb-2" bg="danger">Out of Stock</Badge>)}
                 <ShowImage cssClassName={cssClassName} url={"product"} item={product} />
                 <p className='p_name'>{product.name}</p>
                 <p className='price'>&#2547;{product.price}</p>
