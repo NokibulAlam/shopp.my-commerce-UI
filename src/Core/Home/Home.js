@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import { Container, Row, Col } from 'react-bootstrap';
+
+//  Import Components
 import Layout from '../Layout/Layout'
+import Card from '../Card/Card';
+
 
 // Import API
 import { getProducts } from '../ApiCore';
@@ -10,17 +15,17 @@ const Home = () => {
   const [error, setError] = useState(false);
 
   // Get New Product
-  // const loadProductByArival = () => {
-  //   getProducts("createdAt").then((data) => {
-  //     if(data.error){
-  //       setError(true);
-  //     }
-  //     else{
-  //       setProductByArival(data);
-  //       console.log(data);
-  //     }
-  //   });
-  // };
+  const loadProductByArival = () => {
+    getProducts("createdAt").then((data) => {
+      if(data.error){
+        setError(true);
+      }
+      else{
+        setProductByArival(data);
+        console.log(data);
+      }
+    });
+  };
 
   // Get Best Selling Product
   const loadProductBySell = () => {
@@ -38,15 +43,24 @@ const Home = () => {
 
   // Load Initial product
   useEffect(() => {
-    // loadProductByArival();
+    loadProductByArival();
     loadProductBySell();
   }, []);
 
   return (
-    <Layout title="Home" description="This is the Home page">
-            
+    <Layout title="Welcome to Shopp.my Commerce" description="This is the Home page" classname="container-fluid">
+      <Container>
+        <h2 className="mb-4">Best Selling Products</h2>
+        <Row>
+          {productBySell.map((product, i) => (
+            <Col md={4} className="mb-3">
+              <Card key={i} product={product} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </Layout>
   )
 }
 
-export default Home
+export default Home;
