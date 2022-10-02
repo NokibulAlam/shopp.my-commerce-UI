@@ -14,7 +14,7 @@
 }
 
 .navItem{
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #D7573D;
 }
@@ -27,4 +27,8 @@
 .active-link{
     /* color: #199689; */
     color: #fff;
+}
+
+.custom-color{
+  background-color: whitesmoke  !important;
 }

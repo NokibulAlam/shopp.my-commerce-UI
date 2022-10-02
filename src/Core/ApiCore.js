@@ -14,3 +14,16 @@ export const getProducts = (sortBy) => {
   };
 
 
+  // Get Single Product
+  export const getSingleProduct = (productId) => {
+    return fetch(`http://localhost:4000/api/product/${productId}`, {
+      method: "GET",
+    })
+      .then((data) => {
+        return data.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+

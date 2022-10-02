@@ -6,7 +6,7 @@ import './Layout.css';
 import '../../style.css';
 
 // NavBar Import
-import Menu from '../Menu/Menu';;
+import Menu from '../Menu/Menu';
 
 
 const Layout = ({
@@ -71,4 +71,4 @@ const Layout = ({
     )
 }
 
-export default Layout
+export default Layout;

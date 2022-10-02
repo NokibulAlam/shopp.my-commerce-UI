@@ -22,7 +22,6 @@ const Home = () => {
       }
       else{
         setProductByArival(data);
-        console.log(data);
       }
     });
   };
@@ -36,7 +35,6 @@ const Home = () => {
         }
         else {
           setProductBySell(data);
-          console.log(data);
         }
       });
   };
@@ -50,14 +48,25 @@ const Home = () => {
   return (
     <Layout title="Welcome to Shopp.my Commerce" description="This is the Home page" classname="container-fluid">
       <Container>
+
         <h2 className="mb-4">Best Selling Products</h2>
         <Row>
           {productBySell.map((product, i) => (
-            <Col md={4} lg={3} sm={6} className="mb-3">
-              <Card key={i} product={product} />
+            <Col md={4} lg={3} sm={6} className="mb-3" key={i}>
+              <Card product={product}/>
             </Col>
           ))}
         </Row>
+
+        <h2 className="mb-4">New Arival Products</h2>
+        <Row>
+          {productByArival.map((product, i) => (
+            <Col md={4} lg={3} sm={6} className="mb-3" key={i}>
+              <Card product={product}/>
+            </Col>
+          ))}
+        </Row>
+        
       </Container>
     </Layout>
   )
