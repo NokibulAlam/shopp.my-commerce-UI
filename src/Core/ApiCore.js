@@ -27,3 +27,16 @@ export const getProducts = (sortBy) => {
       });
   };
 
+
+// Get Related Products for Single Product Page
+export const getRelatedProducts = (productId) => {
+  return fetch(`http://localhost:4000/api/products/related/${productId}`, {
+    method: "GET",
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
