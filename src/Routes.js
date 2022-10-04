@@ -8,6 +8,7 @@ import Home from './Core/Home/Home';
 import ProductPage from './Core/ProductPage/ProductPage';
 import UserDashBoard from './User/UserDashBoard';
 import AdminDashBoard from './User/AdminDashBoard';
+import CreateCategory from './Admin/CreateCategory';
 
 // Import Protected Routing
 import PrivateRoute from './Auth/PrivateRoute';
@@ -29,6 +30,9 @@ function Router() {
 
             <Route exact path={'/admin/dashboard'} element={<AdminRoute />}>
               <Route exact path={'/admin/dashboard'} element={<AdminDashBoard />}/>
+            </Route>
+            <Route exact path={'/create/category'} element={<AdminRoute />}>
+              <Route exact path={'/create/category'} element={<CreateCategory />}/>
             </Route>
 
         </Routes>   

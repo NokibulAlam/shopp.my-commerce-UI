@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, matchPath, useLocation } from 'react-router-dom';
 import './Menu.css';
 
 // API
@@ -9,8 +9,17 @@ import { isAuthenticate, signOut } from '../../Auth/index';
 // Import Logo.png
 import Logo from '../../images/Logo-1.png';
 
+
 const Menu = () => {
-    // console.log(window.location.pathname);
+
+    // For Active Path Location in Menu
+    const { pathname } = useLocation();
+    const isActive = (path) => {
+        if(matchPath(pathname, path)?.pathname === path){
+            return { borderBottom: "1px solid #20232A" };
+        }
+    }
+
     return (
         <div className="navbar_nav">
             <Navbar bg="light" variant="light" expand="lg" className='custom-color'>
@@ -23,15 +32,28 @@ const Menu = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link as={Link} to="/"><span className='navItem'>Home</span></Nav.Link>
+                            <Nav.Link as={Link} to="/" style={isActive("/")}><span className='navItem'>Home</span></Nav.Link>
+
+                            {/* Admin DashBoard */}
+                            {isAuthenticate() && isAuthenticate().user.role === 1 &&(
+                                <Nav.Link as={Link} to="/admin/dashboard" style={isActive("/admin/dashboard")}><span className='navItem'>DashBoard</span></Nav.Link>
+                            )}
+
+                            {/* USER DashBoard */}
+                            {isAuthenticate() && isAuthenticate().user.role === 0 &&(
+                                <Nav.Link as={Link} to="/admin/dashboard" style={isActive("/admin/dashboard")}><span className='navItem'>Profile</span></Nav.Link>
+                            )}
+
+                            {/* SIGN-In Sign-UP */}
                             {!isAuthenticate() && (
                                 <>
                                 {" "}
-                                <Nav.Link as={Link} to="/signin"><span className='navItem'>Signin</span></Nav.Link>
-                                <Nav.Link as={Link} to="/signup"><span className='navItem'>Signup</span></Nav.Link> 
+                                <Nav.Link as={Link} to="/signin" style={isActive("/signin")}><span className='navItem'>Signin</span></Nav.Link>
+                                <Nav.Link as={Link} to="/signup" style={isActive("/signup")}><span className='navItem'>Signup</span></Nav.Link> 
                                 </>
                             )}
 
+                            {/* FOR LOGOUT */}
                             {isAuthenticate() && (
                                 <>
                                 {" "}

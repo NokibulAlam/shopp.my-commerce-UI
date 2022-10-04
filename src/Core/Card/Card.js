@@ -30,7 +30,7 @@ const Card = ({
     }
 
     return (
-        <div className='card'>
+        <div className='card mt-2'>
             <div className='card-header cat-name'>{product.category && product.category.name}</div>
             <div className='card-body'>
                 {product.quantity > 0 ? (<Badge className="mb-2" bg="success">In Stock</Badge>) : inStock()}

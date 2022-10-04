@@ -12,6 +12,9 @@ import { getSingleProduct, getRelatedProducts } from '../ApiCore';
 import Card from '../Card/Card';
 import ShowImage from '../ShowImage/ShowImage';
 
+// Import Css
+import './ProductPage.css';
+
 const ProductPage = (cssClassName = "", showAddToCartButton = true) => {
 
     const [product, setProduct] = useState({});
@@ -53,8 +56,8 @@ const ProductPage = (cssClassName = "", showAddToCartButton = true) => {
 
             <Container>
                 <Row>
-                    <Col md={8} className="mt-4 mb-4">
-                        <ShowImage cssClassName={cssClassName} url={"product"} item={product} />
+                    <Col md={8} className="mt-4 mb-4 img-shadow">
+                        <ShowImage cssClassName={cssClassName} url={"product"} item={product}/>
                     </Col>
                     <Col md={4}>
                         <h3 className='mt-4'>{product.name}</h3>
