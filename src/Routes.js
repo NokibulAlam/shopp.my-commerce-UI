@@ -1,14 +1,17 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 
-// IMPORT COMPONENTS
+// IMPORT USERs COMPONENTS
 import Signup from "./User/Signup";
 import Signin from "./User/Signin";
 import Home from './Core/Home/Home';
 import ProductPage from './Core/ProductPage/ProductPage';
 import UserDashBoard from './User/UserDashBoard';
+
+// IMPORT Admin COMPONENTS
 import AdminDashBoard from './User/AdminDashBoard';
 import CreateCategory from './Admin/CreateCategory';
+import CreateProduct from './Admin/CreateProduct';
 
 // Import Protected Routing
 import PrivateRoute from './Auth/PrivateRoute';
@@ -31,8 +34,13 @@ function Router() {
             <Route exact path={'/admin/dashboard'} element={<AdminRoute />}>
               <Route exact path={'/admin/dashboard'} element={<AdminDashBoard />}/>
             </Route>
+
             <Route exact path={'/create/category'} element={<AdminRoute />}>
               <Route exact path={'/create/category'} element={<CreateCategory />}/>
+            </Route>
+
+            <Route exact path={'/create/product'} element={<AdminRoute />}>
+              <Route exact path={'/create/product'} element={<CreateProduct />}/>
             </Route>
 
         </Routes>   
