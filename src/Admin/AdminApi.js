@@ -48,3 +48,6 @@ export const createProduct = (userId, token, product) => {
             return err;
         });
 };
+
+// Get All Products
+// export const getProducts = (userId, token)

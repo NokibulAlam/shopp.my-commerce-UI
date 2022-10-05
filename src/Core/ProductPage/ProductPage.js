@@ -56,7 +56,7 @@ const ProductPage = (cssClassName = "", showAddToCartButton = true) => {
 
             <Container>
                 <Row>
-                    <Col md={8} className="mt-4 mb-4 img-shadow">
+                    <Col md={8} className="mt-4 mb-4 img-shadow"  style={{ width: "600", height: "auto"}}>
                         <ShowImage cssClassName={cssClassName} url={"product"} item={product}/>
                     </Col>
                     <Col md={4}>
