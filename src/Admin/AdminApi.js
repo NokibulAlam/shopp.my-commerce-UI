@@ -61,3 +61,21 @@ export const getProducts = () => {
             return err.json();
         });
 }
+
+// Delete Product
+export const deleleProduct = (userId, token, productId) => {
+    return fetch(`http://localhost:4000/api/product/${productId}/${userId}`, {
+        method: "DELETE", 
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            return err;
+        });
+};

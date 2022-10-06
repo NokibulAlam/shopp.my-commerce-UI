@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 // Import Admin DashBoard
 import AdminDashBoard from '../User/AdminDashBoard';
 
+// Import Components
+// import ShowImage from '../Core/ShowImage/ShowImage';
+
 // Import API
 import { isAuthenticate } from '../Auth/index';
-import { getProducts } from './AdminApi';
+import { getProducts, deleleProduct} from './AdminApi';
 
 const ManageProducts = () => {
   let [products, setProducts] = useState([]);
 
   const { user, token } = isAuthenticate();
 
+  // For Deleting Product
+  const removeProduct = (id) => {
+    deleleProduct(user._id, token, id)
+      .then((data) => {
+        if(data.error){
+          console.log(data.error);
+        }
+        else{
+          loadProducts();
+        }
+      });
+  };
+
+  // For Getting All Products
   const loadProducts = () => {
     getProducts()
       .then((data) => {
@@ -27,7 +46,7 @@ const ManageProducts = () => {
 
   useEffect(() => {
     loadProducts();
-  }, [])
+  }, []);
 
   return (
     <AdminDashBoard>
@@ -37,43 +56,46 @@ const ManageProducts = () => {
         </div>
 
         <div>
-          <table claass="table">
-            <thead class="thead-dark">
+          <Table striped bordered hover>
+            <thead>
               <tr>
-                <th scope='col'>#</th>
-                <th scope='col'>Product Name</th>
-                <th scope='col'>Update</th>
-                <th scope='col'>Delete</th>
+                <th>#</th>
+                <th>Product Name</th>
+                {/* <th>Product Image</th> */}
+                <th>Update Product</th>
+                <th>Delete Product</th>
               </tr>
             </thead>
             <tbody>
-              {products.map((product, i) => (
-                <tr>
-                  <th scope="row">{i}</th>
-                  <td>
-                    <strong>{product.name}</strong>
-                  </td>
-                  <td>
-                    {" "}
-                    {/* <Link to={`/admin/product/update/${product._id}`}> */}
-                      <span className="badge badge-info badge-pill">
-                        {/* <FontAwesomeIcon icon={faEdit} /> Update */}
-                      </span>
-                    {/* </Link> */}
-                  </td>
-                  <td>
-                    {" "}
-                    <span
-                      // onClick={() => removeProduct(product._id)}
-                      className="badge badge-danger badge-pill"
-                    >
-                      {/* <FontAwesomeIcon icon={faTrash} /> Delete */}
-                    </span>{" "}
-                  </td>
-                </tr>
-              ))}
+            {products.map((product, i) => (
+                  <tr key={i}>
+                    <th scope="row">{i + 1}</th>
+                    <td>
+                      <strong>{product.name}</strong>
+                    </td>
+                    {/* <td style={{ width: "200px"}}>
+                      <ShowImage item={product} url="product" />
+                    </td> */}
+                    <td>
+                      {" "}
+                      <Link to={`/admin/product/update/${product._id}`}>
+                        <span className="badge badge-info badge-pill bg-warning">
+                           Update
+                        </span>
+                      </Link>
+                    </td>
+                    <td>
+                      {" "}
+                      <span
+                        onClick={() => removeProduct(product._id)}
+                        className="badge badge-danger badge-pill bg-danger">
+                         Delete
+                      </span>{" "}
+                    </td>
+                  </tr>
+                ))}
             </tbody>
-          </table>
+          </Table>
         </div>
       </div>
     </AdminDashBoard>
