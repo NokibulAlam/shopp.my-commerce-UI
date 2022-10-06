@@ -52,7 +52,7 @@ const Home = () => {
         <h2 className="mb-4">Best Selling Products</h2>
         <Row>
           {productBySell.map((product, i) => (
-            <Col md={4} lg={3} sm={6} className="mb-3" key={i}>
+            <Col md={4} lg={3} sm={6} className="mb-3" key={i}  data-aos="zoom-in">
               <Card product={product}/>
             </Col>
           ))}
@@ -61,7 +61,7 @@ const Home = () => {
         <h2 className="mb-4">New Arival Products</h2>
         <Row>
           {productByArival.map((product, i) => (
-            <Col md={4} lg={3} sm={6} className="mb-3" key={i}>
+            <Col md={4} lg={3} sm={6} className="mb-3" key={i} data-aos="zoom-in">
               <Card product={product}/>
             </Col>
           ))}

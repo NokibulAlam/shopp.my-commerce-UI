@@ -20,7 +20,7 @@ const Layout = ({
             <Container fluid>
                 <Menu />
                 <Row>
-                    <Col lg={12} md={12} sm={12}>
+                    <Col lg={12} md={12} sm={12} data-aos="fade-up" data-aos-duration="2000">
                         <Carousel fade>
                             <Carousel.Item>
                                 <img

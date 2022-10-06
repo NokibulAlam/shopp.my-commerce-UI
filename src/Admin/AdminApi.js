@@ -50,4 +50,14 @@ export const createProduct = (userId, token, product) => {
 };
 
 // Get All Products
-// export const getProducts = (userId, token)
+export const getProducts = () => {
+    return fetch(`http://localhost:4000/api/products`, {
+            method: "GET",
+        })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            return err.json();
+        });
+}

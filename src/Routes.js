@@ -12,10 +12,12 @@ import UserDashBoard from './User/UserDashBoard';
 import AdminDashBoard from './User/AdminDashBoard';
 import CreateCategory from './Admin/CreateCategory';
 import CreateProduct from './Admin/CreateProduct';
+import ManageProducts from './Admin/ManageProducts';
 
 // Import Protected Routing
 import PrivateRoute from './Auth/PrivateRoute';
 import AdminRoute from './Auth/AdminRoute';
+
 
 function Router() {
   return (
@@ -41,6 +43,10 @@ function Router() {
 
             <Route exact path={'/create/product'} element={<AdminRoute />}>
               <Route exact path={'/create/product'} element={<CreateProduct />}/>
+            </Route>
+
+            <Route exact path={'/admin/products'} element={<AdminRoute />}>
+              <Route exact path={'/admin/products'} element={<ManageProducts />}/>
             </Route>
 
         </Routes>   
