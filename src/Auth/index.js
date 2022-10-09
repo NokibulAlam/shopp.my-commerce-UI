@@ -1,6 +1,7 @@
 // import { API } from "../config";
 // import { Navigate } from 'react-router-dom';
 
+
 // User SignUp
 export const signUp = (user) => {
     return fetch(`http://localhost:4000/api/signup`, {

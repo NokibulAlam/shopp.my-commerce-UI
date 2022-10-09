@@ -79,3 +79,22 @@ export const deleleProduct = (userId, token, productId) => {
             return err;
         });
 };
+
+
+// Update Product
+export const updateProduct = (userId, token, productId, product) => {
+    return fetch(`http://localhost:4000/api/product/${productId}/${userId}`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: product,
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            return err;
+        });
+}

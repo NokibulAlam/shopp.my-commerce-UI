@@ -27,7 +27,7 @@ const AdminDashBoard = ({children, className}) => {
           </li>
         </ul>
       </div>
-    )
+    );
   }
 
   return (
@@ -39,14 +39,15 @@ const AdminDashBoard = ({children, className}) => {
           <Col md={2}>
             {adminSideBar()}
           </Col>
+
           <Col md={8}>
           <div className={className}>
             {children}
           </div>
           </Col>
+
         </Row>
       </Container>
-      
     </div >
   )
 }
