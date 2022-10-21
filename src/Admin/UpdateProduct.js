@@ -12,7 +12,7 @@ import { getCategory, updateProduct } from './AdminApi';
 import { getSingleProduct } from '../Core/ApiCore';
 
 
-const UpdateProduct = ({ match }) => {
+const UpdateProduct = () => {
   // state
   let [category, setCategory] = useState([]);
   let [values, setValues] = useState({

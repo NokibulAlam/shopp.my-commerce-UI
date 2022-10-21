@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 //  Import Components
 import Layout from '../Layout/Layout'
 import Card from '../Card/Card';
-
+import Search from '../Search/Search';
 
 // Import API
 import { getProducts } from '../ApiCore';
@@ -47,6 +47,15 @@ const Home = () => {
 
   return (
     <Layout title="Welcome to Shopp.my Commerce" description="This is the Home page" classname="container-fluid">
+      
+      <Container>
+        <Row>
+          <Col md={12}>
+            <Search />
+          </Col>
+        </Row>
+      </Container>
+
       <Container>
 
         <h2 className="mb-4">Best Selling Products</h2>

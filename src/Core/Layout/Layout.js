@@ -1,6 +1,11 @@
 import React from 'react'
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
+// Import Images
+import Hero1 from '../../images/Hero/Banner-01.jpg';
+import Hero2 from '../../images/Hero/Banner-02.jpg';
+import Hero3 from '../../images/Hero/Banner-03.jpg';
+
 // import CSS
 import './Layout.css';
 import '../../style.css';
@@ -20,14 +25,14 @@ const Layout = ({
             <Container fluid>
                 <Menu />
                 <Row>
-                    <Col lg={12} md={12} sm={12} data-aos="fade-up" data-aos-duration="1500">
-                        <Carousel fade>
+                    <Col data-aos="fade-up" data-aos-duration="1500">
+                        <Carousel>
                             <Carousel.Item>
                                 <img
                                     className="d-block w-100"
-                                    src="/images/Banner-01.jpg"
+                                    src={Hero1}
                                     alt="First slide"
-                                    height="700px"
+                                   style={{ height: "auto" }}
                                 />
                                 <Carousel.Caption>
                                     {/* <h3 className='layoutH2 text-center'>{title}</h3>
@@ -37,9 +42,9 @@ const Layout = ({
                             <Carousel.Item>
                                 <img
                                     className="d-block w-100"
-                                    src="/images/Banner-02.jpg"
+                                    src={Hero2}
                                     alt="Second slide"
-                                    height="700px"
+                                   style={{ height: "auto" }}
                                 />
 
                                 <Carousel.Caption>
@@ -50,9 +55,9 @@ const Layout = ({
                             <Carousel.Item>
                                 <img
                                     className="d-block w-100"
-                                    src="/images/Banner-03.jpg"
+                                    src={Hero3}
                                     alt="Third slide"
-                                    height="700px"
+                                   style={{ height: "auto" }}
                                 />
 
                                 <Carousel.Caption>

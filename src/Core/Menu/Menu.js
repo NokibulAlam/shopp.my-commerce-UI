@@ -24,7 +24,7 @@ const Menu = () => {
         <div className="navbar_nav">
             <Navbar bg="light" variant="light" expand="lg" className='custom-color'>
                 <Container >
-                    <Navbar.Brand as={Link} to="/"><img src={Logo} alt="Logo" /></Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/"><img src={Logo} alt="Logo"/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav

@@ -1,8 +1,9 @@
-// import { API } from "../config.js";
+const API = 'http://localhost:4000/api';
+
 
 // Get Products
 export const getProducts = (sortBy) => {
-    return fetch(`http://localhost:4000/api/products?sortBy=${sortBy}&order=desc&limit=12`, {
+    return fetch(`${API}/products?sortBy=${sortBy}&order=desc&limit=12`, {
       method: "GET",
     })
       .then((data) => {
@@ -16,7 +17,7 @@ export const getProducts = (sortBy) => {
 
   // Get Single Product
   export const getSingleProduct = (productId) => {
-    return fetch(`http://localhost:4000/api/product/${productId}`, {
+    return fetch(`${API}/product/${productId}`, {
       method: "GET",
     })
       .then((data) => {
@@ -30,7 +31,7 @@ export const getProducts = (sortBy) => {
 
 // Get Related Products for Single Product Page
 export const getRelatedProducts = (productId) => {
-  return fetch(`http://localhost:4000/api/products/related/${productId}`, {
+  return fetch(`${API}/products/related/${productId}`, {
     method: "GET",
   })
     .then((data) => {
@@ -39,4 +40,18 @@ export const getRelatedProducts = (productId) => {
     .catch((err) => {
       console.log(err);
     });
+};
+
+
+// Get All Category
+export const getCategory = () => {
+  return fetch(`${API}/categories`, {
+          method: "GET",
+      })
+      .then((res) => {
+          return res.json();
+      })
+      .catch((err) => {
+          return err.json();
+      });
 };
