@@ -4,6 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 // API
 import { getCategory } from '../ApiCore';
 
+//css
+import './Search.css';
+
 const Search = () => {
     //state
     const [data, setData] = useState({
