@@ -7,6 +7,7 @@ import Signin from "./User/Signin";
 import Home from './Core/Home/Home';
 import ProductPage from './Core/ProductPage/ProductPage';
 import UserDashBoard from './User/UserDashBoard';
+import Shop from './Core/Shop/Shop';
 
 // IMPORT Admin COMPONENTS
 import AdminDashBoard from './User/AdminDashBoard';
@@ -27,6 +28,7 @@ function Router() {
         <Routes>
           
             <Route path={'/'} element={<Home />}/>
+            <Route path={'/shop'} element={<Shop />}/>
             <Route path={'/signin'} element={<Signin />}/>
             <Route path={'/signup'} element={<Signup />}/>
             <Route path={'/product/:productId'} element={<ProductPage />}/>

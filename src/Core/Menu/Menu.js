@@ -33,6 +33,7 @@ const Menu = () => {
                             navbarScroll
                         >
                             <Nav.Link as={Link} to="/" style={isActive("/")}><span className='navItem'>Home</span></Nav.Link>
+                            <Nav.Link as={Link} to="/shop" style={isActive("/shop")}><span className='navItem'>Shop</span></Nav.Link>
 
                             {/* Admin DashBoard */}
                             {isAuthenticate() && isAuthenticate().user.role === 1 &&(
@@ -41,7 +42,7 @@ const Menu = () => {
 
                             {/* USER DashBoard */}
                             {isAuthenticate() && isAuthenticate().user.role === 0 &&(
-                                <Nav.Link as={Link} to="/admin/dashboard" style={isActive("/admin/dashboard")}><span className='navItem'>Profile</span></Nav.Link>
+                                <Nav.Link as={Link} to="/user/dashboard" style={isActive("/user/dashboard")}><span className='navItem'>Profile</span></Nav.Link>
                             )}
 
                             {/* SIGN-In Sign-UP */}
