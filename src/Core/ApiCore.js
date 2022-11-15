@@ -72,3 +72,26 @@ export const getSearchedProducts = (params) => {
       console.log(err);
     });
 };
+
+
+//get Filterd Product 
+export const getFilterProduct = (skip, limit, filters = {}) => {
+  const data = {
+    limit, skip, filters,
+  };
+
+  return fetch(`${API}/product/by/search`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
